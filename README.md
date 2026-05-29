@@ -1,39 +1,76 @@
-# 🪙 Pearl Miner - GitHub Codespaces
+# 🪙 Pearl Miner
 
-Free GPU mining with GitHub Codespaces.
+Free GPU mining setup for [Pearl (PRL)](https://pearlhash.xyz) — a proof-of-useful-work blockchain for AI compute.
 
-## ⚠️ WARNING
-- GitHub/Azure ToS prohibit crypto mining
-- Your account may be banned
-- Use at your own risk
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Platform](https://img.shields.io/badge/platform-GPU%20Cloud%20%7C%20Colab%20%7C%20Kaggle-green.svg)
 
-## Quick Start
+## Features
 
-1. Fork this repo
-2. Open in Codespaces (button in GitHub)
-3. Select machine with GPU (4 cores + 16GB RAM + GPU)
-4. Run:
+- 🚀 Works on Google Colab (T4 GPU - FREE)
+- 🚀 Works on Kaggle (T4 x2 GPU - FREE)  
+- 🚀 Works on Modal (H100/A100 - paid)
+- 🔒 No mining pool fees
+
+## Getting Started
+
+### Prerequisites
+
+- A Pearl (PRL) wallet address → [Get from pearlhash.xyz](https://pearlhash.xyz)
+- GPU-enabled cloud environment (see options below)
+
+### Quick Setup
+
 ```bash
+# 1. Clone this repo
+git clone https://github.com/rahmanhsim/pearl-miner-codespaces.git
+cd pearl-miner-codespaces
+
+# 2. Run setup
 ./setup.sh
+
+# 3. Edit your wallet in start-mining.sh
+nano start-mining.sh
+
+# 4. Start mining
 ./start-mining.sh
 ```
 
-## Pools
+### GPU Options
 
-| Region | Host |
-|--------|------|
-| Asia (Singapore) | 129.226.55.135:9000 |
-| US (Chicago) | 84.32.220.219:9000 |
+| Platform | GPU | Cost | Notes |
+|----------|-----|------|-------|
+| Google Colab | T4 15GB | FREE | Restart every ~2 hours |
+| Kaggle | T4 x2 32GB | FREE | 30 hrs/week limit |
+| Modal | H100/A100 | $0.50-3/hr | $30 free for new accounts |
 
-To switch pool:
-```bash
-./start-mining.sh 129.226.55.135:9000   # Asia
-./start-mining.sh 84.32.220.219:9000     # US
-```
+### Pool Servers
 
-## My Stats
+| Region | Address |
+|--------|---------|
+| Asia (Singapore) | `129.226.55.135:9000` |
+| US (Chicago) | `84.32.220.219:9000` |
+| EU | Check [pearlhash.xyz](https://pearlhash.xyz) |
 
-- Workers: 10 (77 TH/s total)
-- PRL price: ~$0.023
-- Revenue: ~$0.06/day (not worth much)
+## Wallet Setup
 
+1. Register at [pearlhash.xyz](https://pearlhash.xyz)
+2. Get your PRL wallet address
+3. Edit `start-mining.sh`:
+   ```bash
+   WALLET="prl1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+   WORKER="your-worker-name"
+   ```
+
+## Earnings
+
+- Check your stats: [https://the.hiveos.farm](https://the.hiveos.farm)
+- PRL price: [Coingecko](https://www.coingecko.com/en/coins/pearl)
+
+## Disclaimer
+
+Mining cryptocurrency may consume significant GPU resources and electricity. Use responsibly and at your own risk.
+
+## License
+
+MIT

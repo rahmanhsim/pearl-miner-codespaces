@@ -1,19 +1,25 @@
 #!/bin/bash
 set -e
 
-echo "Setting up environment..."
+echo "🪙 Pearl Miner Setup"
+echo "===================="
 
 # Check GPU
 if command -v nvidia-smi &> /dev/null; then
-    echo "NVIDIA GPU detected:"
-    nvidia-smi
+    echo "✅ GPU found:"
+    nvidia-smi --query-gpu=name,memory.total --format=csv,noheader
 else
-    echo "No NVIDIA GPU found. Codespaces may not have GPU enabled."
-    echo "Go to: GitHub repo -> Codespaces -> Create codespace -> Machine type -> Select GPU"
+    echo "⚠️  No NVIDIA GPU detected"
 fi
 
 # Download miner
+echo ""
+echo "📥 Downloading Pearl Miner..."
 curl -L https://pearlhash.xyz/downloads/pearl-miner-v8 -o pearl-miner
 chmod +x pearl-miner
 
-echo "Setup complete! Run ./start-mining.sh [wallet] [worker] [pool]"
+echo "✅ Setup complete!"
+echo ""
+echo "Next steps:"
+echo "1. Edit WALLET in start-mining.sh with your PRL address"
+echo "2. Run: ./start-mining.sh"
