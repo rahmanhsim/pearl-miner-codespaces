@@ -11,31 +11,29 @@ Free GPU mining with GitHub Codespaces.
 
 1. Fork this repo
 2. Open in Codespaces (button in GitHub)
-3. Select machine with GPU
+3. Select machine with GPU (4 cores + 16GB RAM + GPU)
 4. Run:
 ```bash
-chmod +x pearl-miner
-./pearl-miner --host 129.226.55.135:9000 --user YOUR_WALLET --worker YOUR_WORKER
+./setup.sh
+./start-mining.sh
 ```
 
-## Available Pools
+## Pools
 
 | Region | Host |
 |--------|------|
 | Asia (Singapore) | 129.226.55.135:9000 |
 | US (Chicago) | 84.32.220.219:9000 |
-| EU | 84.32.220.219:9000 |
 
-## Download Binary
-
+To switch pool:
 ```bash
-curl -L https://pearlhash.xyz/downloads/pearl-miner-v8 -o pearl-miner
-chmod +x pearl-miner
+./start-mining.sh 129.226.55.135:9000   # Asia
+./start-mining.sh 84.32.220.219:9000     # US
 ```
 
-## Current Earnings (Example)
+## My Stats
 
-- 8 workers on Colab: ~80 TH/s
-- PRL/day: ~2.65 (~$0.06 at $0.023/PRL)
-- Not worth it unless PRL price pumps
+- Workers: 10 (77 TH/s total)
+- PRL price: ~$0.023
+- Revenue: ~$0.06/day (not worth much)
 
